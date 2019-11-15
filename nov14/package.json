@@ -1,0 +1,26 @@
+{
+  "name": "test",
+  "version": "1.0.1",
+  "description": "akali overload kekw",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Ajar-maharjan/Node-Practice.git"
+  },
+  "keywords": [
+    "assasin"
+  ],
+  "author": "pleiades",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ajar-maharjan/Node-Practice/issues"
+  },
+  "homepage": "https://github.com/Ajar-maharjan/Node-Practice#index.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^1.19.4"
+  }
+}
