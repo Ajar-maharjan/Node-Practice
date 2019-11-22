@@ -1,3 +1,4 @@
+"use strict";
 //common js
 //var http = require('http');
 //console.log(http);
@@ -5,7 +6,7 @@ const express = require('express');
 const app = express();
 
 //authenticating middleware
-app.get('/auth', 
+/*app.get('/auth', 
 function(req,res,next){
     console.log('in first middleware do something');
     next();
@@ -17,15 +18,15 @@ function(req,res,next){
         'Content-Type' : 'plain'
     });
     res.send('Nurse Akali');
-})
+}) */
 
 
 //route
 app.get('/',function(req,res){
 //handle
 console.log('True damage akali');
-//json format
-var x = {name: "true damage",test:'akali'};
+//json formaut
+var x = {name: 'true damage',test:'akali'};
 //set
 res.status(200);
 res.set({'Content-Type':'application/json'});
