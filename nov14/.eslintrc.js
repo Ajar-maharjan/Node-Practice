@@ -11,5 +11,10 @@ module.exports = {
         "ecmaVersion": 2018
     },
     "rules": {
+        "semi":['off',"always"],
+        "quotes": ["warn","single"],
+        //"no-console":"warn",
+        "camelcase":"warn"
+
     }
 };
