@@ -25,7 +25,7 @@ function(req,res,next){
 app.get('/',function(req,res){
 //handle
 console.log('True damage akali');
-//json formaut
+//json format
 var x = {name: 'true damage',test:'akali'};
 //set
 res.status(200);
