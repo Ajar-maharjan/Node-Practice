@@ -9,9 +9,6 @@ var dbConfig = require('./Config/DatabaseConfig.js');
 // });
 
 // console.log(PromiseVal)
-
-
-
 //define sequelize model
 var users = dbConfig.sequelize.define( 'user',{
 //attributes
