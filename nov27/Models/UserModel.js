@@ -22,10 +22,10 @@ var users = dbConfig.sequelize.define( 'user',{
     
     users.sync({force:false})
     .then(function(result){
-        console.log("table made successfully")
+        //console.log("table made successfully")
     })
     .catch(function(err){
-        console.log("failed creating table")
+        console.log(err)
     })
 
 module.exports = users

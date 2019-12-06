@@ -27,6 +27,23 @@ function genHash(req,res,next){
         }
     });  
 }
+
+function UserExist(req,res,next){
+users.findOne({
+    where:{username:req.body.username}
+})
+.then(function(result){
+    if (result === null){
+        next();
+    }
+    else{
+    res.json ({status:409, message:'user already exist'})
+    }
+}).catch(function(err){
+    res.json(err);
+})
+}
+
 function Register(req,res,next){
     users.create({
         username:req.body.username,
@@ -42,6 +59,10 @@ function Register(req,res,next){
 }
 
 
+function UploadImage(req, res, next) {
+        console.log(req.file);
+        console.log(req.body);
+}
 module.exports = {
-    Validator,genHash,Register
+    Validator,genHash,Register,UserExist,UploadImage
 }
