@@ -1,5 +1,5 @@
 var bcrypt = require('bcryptjs');
-var dbConfig = require("../Config/DatabaseConfig.js");
+var users = require('../Models/UserModel.js');
 function Validator (req,res,next){
     console.log(req.body);
     // res.send ('req recieved');
@@ -10,9 +10,8 @@ function Validator (req,res,next){
         res.json({status:404,message: 'password is required'})
     }
     else{
-        res.json({status:200,message:'registered successfully'})
+        next();
     }
-    next();
 }
 
 function genHash(req,res,next){
@@ -20,16 +19,26 @@ function genHash(req,res,next){
     bcrypt.hash(req.body.password, saltRounds,function (err, hash)
     {
         if(hash){
-            console.log(hash);
+            req.hashKey = hash;
+            next();
         }
         if(err){
-            console.log(err);
+            res.json(err);
         }
-    }); 
-   next(); 
+    });  
 }
-function Register(){
-    //dbConfig.sequelize.query("insert into user_table values ("+ )
+function Register(req,res,next){
+    users.create({
+        username:req.body.username,
+        password:req.hashKey
+    })
+    .then(function(result){
+        console.log(result);
+        res.json({status:200,message:'registered successfully'});
+        next();
+    }).catch(function(err){
+        res.json(err);
+    })
 }
 
 

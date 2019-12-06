@@ -10,5 +10,5 @@ var userController = require("./Controllers/UserController.js")
 // app.listen(3001);
 
 app.use(bodyParser.urlencoded({extended:true}));
-app.post('/registration',userController.Validator,userController.genHash)
+app.post('/registration',userController.Validator,userController.genHash,userController.Register)
 app.listen(3002);

@@ -28,6 +28,4 @@ var users = dbConfig.sequelize.define( 'user',{
         console.log("failed creating table")
     })
 
-module.exports = {
-    users
-}
+module.exports = users
