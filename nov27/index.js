@@ -3,7 +3,7 @@ var bodyParser = require('body-parser')
 var app = express();
 var multer  = require('multer')
 var upload = multer({ dest: 'uploads/' })
-var userModel = require("./Models/UserModel.js");
+var authController = require("./Controllers/AuthController.js")
 var userController = require("./Controllers/UserController.js")
 // app.get('/hospitallist',function(req,res,next){
 //     console.log(req.query);
@@ -13,7 +13,9 @@ var userController = require("./Controllers/UserController.js")
 
 app.use(bodyParser.urlencoded({extended:true}));
 app.post('/registration',userController.Validator,userController.UserExist,
-userController.genHash,userController.Register)
-app.post('/profile', upload.single('image'),userController.UploadImage)
-
+userController.genHash,userController.Register);
+app.post('/profile', upload.single('image'),userController.UploadImage);
+app.delete('/users/:id',userController.deleteuser);
+app.post('/login',authController.validation,authController.passwordChecker,
+authController.jwtTokenGen);
 app.listen(3002);

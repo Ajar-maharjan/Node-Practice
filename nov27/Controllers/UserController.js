@@ -51,6 +51,7 @@ function Register(req,res,next){
     })
     .then(function(result){
         console.log(result);
+        res.status(201);
         res.json({status:200,message:'registered successfully'});
         next();
     }).catch(function(err){
@@ -58,11 +59,36 @@ function Register(req,res,next){
     })
 }
 
+function deleteuser(req,res,next){
+    if(req.params.id === null || req.params.id === undefined){
+        res.status(404);
+        res.json({status:404,message:"Id not provided"})
+    }
+    users.destroy({
+        where:{
+            id:req.params.id
+        }
+    })
+    .then(function(result){
+        if (result === 0){
+            res.status(500);
+            res.json({status:500,message:"could not delete user"});
+        }
+        else{
+            res.status(200);
+            res.json({status:200,message:"user deleted successful"});
+        }
+    })
+    .catch(function(err){
+            res.json(err);
+    })
+}
 
 function UploadImage(req, res, next) {
         console.log(req.file);
         console.log(req.body);
 }
+
 module.exports = {
-    Validator,genHash,Register,UserExist,UploadImage
+    Validator,genHash,Register,UserExist,UploadImage,deleteuser
 }
