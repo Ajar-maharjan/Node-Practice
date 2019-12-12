@@ -72,7 +72,7 @@ function deleteuser(req,res,next){
     .then(function(result){
         if (result === 0){
             res.status(500);
-            res.json({status:500,message:"could not delete user"});
+            res.json({status:500,message:"User not found"});
         }
         else{
             res.status(200);
