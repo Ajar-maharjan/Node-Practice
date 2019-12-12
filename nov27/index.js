@@ -15,7 +15,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.post('/registration',userController.Validator,userController.UserExist,
 userController.genHash,userController.Register);
 app.post('/profile', upload.single('image'),userController.UploadImage);
-app.delete('/users/:id',userController.deleteuser);
+app.delete('/users/:id',authController.verifyToken,userController.deleteuser);
 app.post('/login',authController.validation,authController.passwordChecker,
 authController.jwtTokenGen);
 app.listen(3002);
