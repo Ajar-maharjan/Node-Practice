@@ -72,8 +72,6 @@ jwt.verify(token,secret,
 function(err,result){
     console.log(err,result);
 if(result){
-    res.status(200);
-    res.json({status:200,message:"authorized access"});
     console.log("correct token");
     next();
 }

@@ -77,21 +77,25 @@ app.use(bodyParser.urlencoded({extended:true}));
 
 /**
 * @swagger
-* paths:
-* /users/:id:
-*  get:
+* /users/{id}:
+*  delete:
 *   tags:
 *    - Delete user
-*   description: Users delete from token testing
+*   description: Delete user from token testing
+*   produces:
+*    - application/json
+*   consumes:
+*    - application/x-www-form-urlencoded
 *   security:
 *    - bearerAuth: []
-*   components:
-*    securitySchemes:
-*     bearerAuth:
-*      type: http
-*      scheme: bearer
-*      bearerFormat: JWT
+*   parameters:
+*    - name: id
+*      in: path
+*      required: true
+*      description: please enter id
 *   responses:
+*    500:
+*     description: User not found
 */
 
 
