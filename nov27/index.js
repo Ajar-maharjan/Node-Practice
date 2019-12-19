@@ -20,6 +20,14 @@ var swaggerDefinition = {
         description: 'This is my app documentation',
         version: '1.0.0' //(New release,sometimes not backward compatible).(New feature, backward compatibility).(bug fix, backward compatibility)
     },
+    securityDefinitions: {
+        bearerAuth:{
+            type:'apiKey',
+            name:'authorization',
+            in:'header',
+            scheme:'bearer',
+        }
+    },
     host:'localhost:3002',
     basePath:'/'
 };
@@ -65,6 +73,25 @@ app.use(bodyParser.urlencoded({extended:true}));
 *     description: user already exist
 *    500:
 *     description: User not found
+*/
+
+/**
+* @swagger
+* paths:
+* /users/:id:
+*  get:
+*   tags:
+*    - Delete user
+*   description: Users delete from token testing
+*   security:
+*    - bearerAuth: []
+*   components:
+*    securitySchemes:
+*     bearerAuth:
+*      type: http
+*      scheme: bearer
+*      bearerFormat: JWT
+*   responses:
 */
 
 

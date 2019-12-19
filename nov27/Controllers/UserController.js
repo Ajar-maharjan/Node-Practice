@@ -4,10 +4,10 @@ function Validator (req,res,next){
     console.log(req.body);
     // res.send ('req recieved');
     if(req.body.username === ''){
-        res.json({status:204,message:'username is required'})
+        res.json({status:404,message:'username is required'})
     }
     else if (req.body.password === ''){
-        res.json({status:204,message: 'password is required'})
+        res.json({status:404,message: 'password is required'})
     }
     else{
         next();
@@ -37,6 +37,7 @@ users.findOne({
         next();
     }
     else{
+        res.status(409);
     res.json ({status:409, message:'user already exist'})
     }
 }).catch(function(err){
@@ -62,7 +63,7 @@ function Register(req,res,next){
 function deleteuser(req,res,next){
     if(req.params.id === null || req.params.id === undefined){
         res.status(404);
-        res.json({status:204,message:"Id not provided"})
+        res.json({status:404,message:"Id not provided"})
     }
     users.destroy({
         where:{

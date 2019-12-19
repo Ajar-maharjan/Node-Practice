@@ -5,7 +5,7 @@ var secret = 'PleiadesIsMySecretKey';
 function validation(req,res,next){
  if(req.body.username === "" || req.body.password ===""){
     res.status(204);
-    res.json({status:204,message:'please enter the given fields'})
+    res.json({status:406,message:'please enter the given fields'})
  }
  else{
     users.findOne({
@@ -72,6 +72,8 @@ jwt.verify(token,secret,
 function(err,result){
     console.log(err,result);
 if(result){
+    res.status(200);
+    res.json({status:200,message:"authorized access"});
     console.log("correct token");
     next();
 }
