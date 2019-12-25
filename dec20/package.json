@@ -1,7 +1,7 @@
 {
-  "name": "test",
-  "version": "1.0.1",
-  "description": "postmon",
+  "name": "testing",
+  "version": "1.0.0",
+  "description": "testing",
   "main": "index.js",
   "scripts": {
     "dev": "nodemon index.js"
@@ -11,17 +11,19 @@
     "url": "git+ssh://git@github.com/Ajar-maharjan/Node-Practice.git"
   },
   "keywords": [
-    "postmon"
+    "mocha",
+    "chai"
   ],
-  "author": "pleiades",
+  "author": "Ajar maharjan",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Ajar-maharjan/Node-Practice/issues"
   },
-  "homepage": "https://github.com/Ajar-maharjan/Node-Practice/nov27#index.js",
+  "homepage": "https://github.com/Ajar-maharjan/Node-Practice/dec20#index.js",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
+    "chai-http": "^4.3.0",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
     "multer": "^1.4.2",
@@ -30,5 +32,10 @@
     "sequelize": "^5.21.2",
     "swagger-jsdoc": "^3.5.0",
     "swagger-ui-express": "^4.1.2"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "eslint": "^6.7.2",
+    "mocha": "^6.2.2"
   }
 }
