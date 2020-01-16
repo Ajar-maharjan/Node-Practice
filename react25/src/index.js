@@ -290,57 +290,94 @@ class Index extends React.Component {
 
         super()
     }
+
+    Footer = () => {
+        return (
+            <Row>
+                <Col sm={4}>
+                     About Hotel
+                     Location:
+                     Phone:
+   
+                     </Col>
+                     <Col sm={4}>
+                     Copyright
+                     </Col>
+                     <Col sm={4}>
+                     Map
+                </Col>
+           </Row>
+    )
+}
+
     // routing navigation reactnavigation 
     // we will use react-router-dom
     // react react native 
     // user login registration and  user list  withdelete button edit button
     render() {
         return (
+          <Container>
+  <Row style={{marginBottom:'30px'}}>
+    <Col sm={8}>
+<Card>
+  <Card.Body>
+    <Card.Title>Hello</Card.Title>
+    <Card.Subtitle className="mb-2 text-muted">My assignmnet</Card.Subtitle>
+    <Card.Text>
+      Some quick example text to build on the card title and make up the bulk of
+      the card's content.
+    </Card.Text>
+    <Card.Link href="#">Learn More </Card.Link>
+    <Card.Link href="#">Another Link</Card.Link>
+  </Card.Body>
+</Card>
+    </Col>
+    <Col sm={4}>
+        <h2>Welcome </h2>
+    </Col>
+  </Row> 
             <div> {/* for wrapping jsx components or use Fragment <> </> */}
-              
-              <Router>
-              <div>
-              <nav>
-              <ul>
-                  <li>
-                  {/*<a href ="/">Home</a>*/}
-                  <Link to="/">Home </Link>
-                  </li>
-                  <li>
-                  <Link to="/login">Login </Link>
-                  </li>
-                   <li>
-                  <Link to="/registration">Registration </Link>
-                  </li>
-              </ul>
-              </nav>
-              </div>
+                
+                <Router>
+                <Row>
+                <div>
 
-              <Switch>
+          <Nav  variant="pills" >
+                <Nav.Item>
+                  <Nav.Link as={Link} to="/" active={true} >Home</Nav.Link> {/*as to use custom component */}
+                </Nav.Item>
+                  <Nav.Item>
+                  <Nav.Link as={Link} to="/regsitration">Regsitration</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                  <Nav.Link as={Link} to="/login">Login</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                  <Nav.Link as={Link} to="/logout">Logout</Nav.Link>
+                </Nav.Item>
+          </Nav>
+                </div>
+                </Row>
+                <Switch>
 
-     {/*     	<Route path="/">
+         {/*      <Route path="/">
                   < Home/>
-              </Route>*/}
-
-                   <Route exact path="/login">
+                </Route>*/}
+                  <Route exact path="/login">
                   < Login/>
                   </Route>
-
-                   OR
-
-                  <Route exact path="/login" component={Login} />
-
-
-              </Switch>
-
-              </Router>
-
-
-            </div>
-
-         )
+    {/*              <Route component={} />*/}
+       {/*            OR
+                  <Route exact path="/login" component={Login} />*/}
+                </Switch>
+                </Router>
+                </div>
+                  < this.Footer/>
+                </Container>
+        )
+    }
 }
 
-}
+ReactDOM.render(<Index />, document.getElementById('root'))
 
-ReactDOM.render(<Index />, document.getElementById('root'));
+
